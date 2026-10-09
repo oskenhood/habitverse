@@ -1,0 +1,18 @@
+{
+  "name": "habitverse",
+  "version": "2.1.0",
+  "private": true,
+  "description": "HabitVerse 2.0 — личный дашборд продуктивности. Основной проект — web/ (Next.js, продакшен); demo/ и v2/ — архив дизайна, app/ — архив v1.2",
+  "scripts": {
+    "install:all": "cd web && npm install && cd ../tests && npm install",
+    "dev": "npm --prefix web run dev",
+    "build": "npm --prefix web run build",
+    "start": "npm --prefix web run start",
+    "export": "npm --prefix web run export",
+    "typecheck": "npm --prefix web run typecheck",
+    "test": "npm --prefix tests run test:web",
+    "test:smoke": "npm --prefix tests run test:web:smoke",
+    "test:all": "npm --prefix tests run test:all",
+    "test:legacy": "npm --prefix tests run test:v2 && npm --prefix tests run test"
+  }
+}

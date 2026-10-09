@@ -1,0 +1,19 @@
+{
+  "name": "habitverse-demo-tests",
+  "private": true,
+  "version": "1.0.0",
+  "description": "jsdom-проверки демо-сборки HabitVerse (dev-only)",
+  "scripts": {
+    "test": "node demo.test.js",
+    "test:single": "TARGET=single node demo.test.js",
+    "test:v2": "node v2.test.js",
+    "test:v2:single": "TARGET=single node v2.test.js",
+    "test:all": "node demo.test.js && node v2.test.js && node engine.web.test.js",
+    "test:web": "node engine.web.test.js",
+    "test:web:smoke": "node web.smoke.test.js",
+    "test:web:static": "node static-export.test.js"
+  },
+  "devDependencies": {
+    "jsdom": "^29.1.1"
+  }
+}

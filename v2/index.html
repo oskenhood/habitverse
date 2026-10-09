@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="snow" data-mode="light" data-density="cozy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HabitVerse — личный дашборд продуктивности</title>
+<meta name="description" content="Спокойный трекер привычек: расписание, стрики, календарь, отчёты, заметки и челленджи. Без шума и геймификации.">
+<meta name="theme-color" content="#FBFBFA">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%236B6E76'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11.5' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="shell">
+  <!-- ===== ШАПКА ===== -->
+  <header class="header">
+    <button class="icon-btn only-mobile" id="btnMenu" aria-label="Меню"></button>
+
+    <a class="brand" href="#" id="brandLink" title="HabitVerse">
+      <span class="brand-mark">◈</span>
+      <span class="brand-name">HabitVerse</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Разделы"></nav>
+
+    <div class="header-actions">
+      <button class="search-trigger" id="btnSearch" title="Поиск и команды">
+        <span id="icSearch" aria-hidden="true"></span>
+        <span class="placeholder">Поиск или команда…</span>
+        <span class="kbd">⌘K</span>
+      </button>
+      <button class="icon-btn" id="btnTheme" title="Тема и оформление"></button>
+      <button class="icon-btn" id="btnBell" title="Напоминания"></button>
+      <button class="avatar-btn" id="btnAvatar" title="Профиль и настройки"><span id="topAvatar">🙂</span></button>
+    </div>
+  </header>
+
+  <div class="body" id="body">
+    <!-- ===== САЙДБАР ===== -->
+    <aside class="sidebar" id="sidebar" aria-label="Навигация"></aside>
+
+    <!-- ===== КОНТЕНТ ===== -->
+    <main class="main" id="main">
+      <div class="page-head" id="pageHead"></div>
+      <div id="pages">
+        <section class="page" data-page="today"></section>
+        <section class="page" data-page="habits"></section>
+        <section class="page" data-page="calendar"></section>
+        <section class="page" data-page="stats"></section>
+        <section class="page" data-page="notes"></section>
+        <section class="page" data-page="team"></section>
+        <section class="page" data-page="settings"></section>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- ===== ОНБОРДИНГ ===== -->
+<div id="onboarding" class="onboarding" hidden>
+  <div class="onb-stage" id="onbStage"></div>
+</div>
+
+<!-- ===== ОВЕРЛЕИ ===== -->
+<div class="modal-root" id="modalRoot" hidden><div class="modal-backdrop" data-close></div><div class="modal" id="modalBox" role="dialog" aria-modal="true"></div></div>
+<div class="sheet-root" id="sheetRoot" hidden><div class="modal-backdrop" data-close></div><div class="sheet" id="sheetBox" role="dialog" aria-modal="true"></div></div>
+<div id="cmdkRoot" hidden></div>
+<div id="toasts" class="toasts" aria-live="polite"></div>
+<div id="menuHost"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

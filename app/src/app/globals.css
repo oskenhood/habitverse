@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+/* ============================================================
+   HabitVerse — токены темы (5 тёмных + светлая)
+   ============================================================ */
+:root {
+  --acc: #7c5cff;
+  --acc2: #00e5c3;
+  --acc3: #ff5c8a;
+  --r: 16px;
+  --r-lg: 24px;
+  --dur: .42s;
+  --ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+html[data-theme="midnight"] {
+  --bg: #07080f; --bg2: #0b0d1a; --bg3: #111428;
+  --card: rgba(255,255,255,.045); --card-solid: #12142a;
+  --stroke: rgba(255,255,255,.09); --stroke2: rgba(255,255,255,.16);
+  --text: #eef0ff; --muted: #9aa0c3; --faint: #6b7199;
+  --ok: #3ddc97; --warn: #ffb020; --bad: #ff5470; --glass: rgba(18,20,42,.62);
+}
+html[data-theme="abyss"] {
+  --bg: #03060c; --bg2: #061019; --bg3: #08202c;
+  --card: rgba(0,229,195,.05); --card-solid: #071620;
+  --stroke: rgba(0,229,195,.14); --stroke2: rgba(0,229,195,.26);
+  --text: #e6fbf6; --muted: #8fb6b0; --faint: #5d857f;
+  --acc: #00e5c3; --acc2: #4aa8ff; --acc3: #a78bfa;
+  --ok: #00e5c3; --warn: #ffcb47; --bad: #ff6b81; --glass: rgba(6,20,28,.66);
+}
+html[data-theme="neon"] {
+  --bg: #0a0014; --bg2: #150025; --bg3: #22063a;
+  --card: rgba(255,92,138,.06); --card-solid: #170726;
+  --stroke: rgba(255,92,138,.2); --stroke2: rgba(124,92,255,.34);
+  --text: #ffeef7; --muted: #c39ad0; --faint: #8f6ba0;
+  --acc: #ff2fd0; --acc2: #7c5cff; --acc3: #00e5ff;
+  --ok: #5cff9d; --warn: #ffd447; --bad: #ff4d6d; --glass: rgba(23,7,38,.6);
+}
+html[data-theme="graphite"] {
+  --bg: #0e0f11; --bg2: #141518; --bg3: #1c1e22;
+  --card: rgba(255,255,255,.04); --card-solid: #17181c;
+  --stroke: rgba(255,255,255,.08); --stroke2: rgba(255,255,255,.15);
+  --text: #f2f2f2; --muted: #a1a1a6; --faint: #6e6e73;
+  --acc: #ff9f0a; --acc2: #64d2ff; --acc3: #bf5af2;
+  --ok: #30d158; --warn: #ffd60a; --bad: #ff453a; --glass: rgba(23,24,28,.66);
+}
+html[data-theme="paper"] {
+  --bg: #f4f5fb; --bg2: #eceef8; --bg3: #e2e5f3;
+  --card: rgba(255,255,255,.86); --card-solid: #ffffff;
+  --stroke: rgba(20,22,50,.1); --stroke2: rgba(20,22,50,.18);
+  --text: #151733; --muted: #5c6188; --faint: #8a90b5;
+  --acc: #6d4aff; --acc2: #00b395; --acc3: #ff4d7d;
+  --ok: #0f9d63; --warn: #c77800; --bad: #d92d4e; --glass: rgba(255,255,255,.7);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg2: var(--bg2);
+  --color-bg3: var(--bg3);
+  --color-card: var(--card);
+  --color-card-solid: var(--card-solid);
+  --color-stroke: var(--stroke);
+  --color-stroke2: var(--stroke2);
+  --color-fg: var(--text);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-acc: var(--acc);
+  --color-acc2: var(--acc2);
+  --color-acc3: var(--acc3);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-bad: var(--bad);
+  --radius-card: var(--r);
+  --ease-spring: var(--ease);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--acc); color: #fff; }
+
+/* ---------- фоновые орбы ---------- */
+.bg-orb {
+  position: absolute; border-radius: 50%; filter: blur(90px); opacity: .5;
+  mix-blend-mode: screen; animation: hv-float 26s var(--ease) infinite; pointer-events: none;
+}
+html[data-theme="paper"] .bg-orb { mix-blend-mode: multiply; opacity: .3; }
+@keyframes hv-float {
+  0%, 100% { transform: translate3d(0,0,0) scale(1); }
+  33% { transform: translate3d(6vw,-4vh,0) scale(1.12); }
+  66% { transform: translate3d(-5vw,5vh,0) scale(.94); }
+}
+.bg-grid {
+  position: absolute; inset: 0; opacity: .5; pointer-events: none;
+  background-image: linear-gradient(var(--stroke) 1px, transparent 1px), linear-gradient(90deg, var(--stroke) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(80% 70% at 50% 30%, #000, transparent 75%);
+}
+
+/* ---------- стеклянная карточка ---------- */
+.glass {
+  background: var(--card);
+  border: 1px solid var(--stroke);
+  backdrop-filter: blur(14px);
+}
+.glass-strong { background: var(--glass); backdrop-filter: blur(24px) saturate(150%); border: 1px solid var(--stroke); }
+
+/* ---------- анимации ---------- */
+@keyframes hv-rise { from { opacity: 0; transform: translateY(14px) scale(.99); } to { opacity: 1; transform: none; } }
+.hv-rise { animation: hv-rise .5s var(--ease) both; }
+@keyframes hv-pop { 0% { transform: scale(.2) rotate(-25deg); } 60% { transform: scale(1.25) rotate(6deg); } 100% { transform: scale(1); } }
+.hv-pop { animation: hv-pop .45s var(--ease); }
+@keyframes hv-shimmer { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+.hv-shimmer::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.35), transparent 70%);
+  transform: translateX(-120%); animation: hv-shimmer 2.6s linear infinite; pointer-events: none;
+}
+@keyframes hv-bob { 0%,100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-10px) rotate(4deg); } }
+.hv-bob { animation: hv-bob 3.4s var(--ease) infinite; }
+@keyframes hv-spin3d { from { transform: rotateX(-18deg) rotateY(0); } to { transform: rotateX(-18deg) rotateY(360deg); } }
+@keyframes hv-core { 0%,100% { transform: scale(1); opacity: .95; } 50% { transform: scale(1.16); opacity: .7; } }
+
+/* 3D-сфера на чистом CSS (лёгкая альтернатива three.js) */
+.orb-scene { perspective: 800px; display: grid; place-items: center; }
+.orb { position: relative; transform-style: preserve-3d; animation: hv-spin3d 18s linear infinite; }
+.orb-ring { position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--acc); opacity: .55; }
+.orb-core { position: absolute; inset: 32%; border-radius: 50%; animation: hv-core 3.2s var(--ease) infinite;
+  background: radial-gradient(circle at 32% 30%, #fff, var(--acc) 55%, transparent 72%); }
+.tilt { transform-style: preserve-3d; transition: transform .5s var(--ease); }
+
+/* ---------- скроллбары ---------- */
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: var(--stroke2); border-radius: 99px; border: 3px solid transparent; background-clip: content-box; }
+*::-webkit-scrollbar-thumb:hover { background: var(--acc); background-clip: content-box; }
+
+/* ---------- утилиты ---------- */
+.tabular { font-variant-numeric: tabular-nums; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.glow-acc { box-shadow: 0 0 0 1px color-mix(in oklab, var(--acc) 30%, transparent), 0 14px 40px -14px color-mix(in oklab, var(--acc) 55%, transparent); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "habitverse",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.117.2",
+    "clsx": "^2.1.1",
+    "framer-motion": "^14.0.0",
+    "next": "16.3.8",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "sonner": "^2.0.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/ws": "^8.18.2",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.8",
+    "tailwindcss": "^4",
+    "tsx": "^4.20.0",
+    "typescript": "^5",
+    "ws": "^8.22.0"
+  },
+  "description": "HabitVerse — социальный трекер привычек (Next.js + Supabase)",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build --webpack",
+    "build:turbopack": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "import:demo": "tsx scripts/import-demo.ts"
+  },
+  "engines": {
+    "node": ">=20.9"
+  }
+}

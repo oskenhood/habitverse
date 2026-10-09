@@ -1,0 +1,123 @@
+{
+  "profile": {
+    "name": "Тест Импорт",
+    "emoji": "🦊",
+    "bio": "проверка",
+    "birth": "1996-05-14",
+    "theme": "abyss",
+    "accent": 1
+  },
+  "habits": [
+    {
+      "id": "h_a",
+      "name": "Утренняя пробежка",
+      "emoji": "🏃",
+      "color": "#ff6b35",
+      "desc": "5 км",
+      "cat": "health",
+      "freq": {
+        "type": "weekdays",
+        "days": [
+          0,
+          2,
+          4
+        ]
+      },
+      "start": "2026-08-28",
+      "target": 1,
+      "unit": "",
+      "reminder": "06:40",
+      "notif": true,
+      "difficulty": 3,
+      "freezes": 2
+    },
+    {
+      "id": "h_b",
+      "name": "Без сахара",
+      "emoji": "🚫",
+      "color": "#ff5c8a",
+      "desc": "ноль добавленного",
+      "cat": "disc",
+      "freq": {
+        "type": "daily"
+      },
+      "start": "2026-08-28",
+      "target": 1,
+      "neg": true,
+      "difficulty": 4,
+      "freezes": 3
+    },
+    {
+      "id": "h_c",
+      "name": "Чтение",
+      "emoji": "📚",
+      "color": "#a78bfa",
+      "cat": "mind",
+      "freq": {
+        "type": "interval",
+        "every": 2
+      },
+      "start": "2026-09-27",
+      "target": 20,
+      "unit": "страниц"
+    }
+  ],
+  "logs": {
+    "h_a": {
+      "2026-10-06": {
+        "status": "done"
+      },
+      "2026-10-05": {
+        "status": "done"
+      },
+      "2026-10-04": {
+        "status": "done"
+      },
+      "2026-10-03": {
+        "status": "done"
+      },
+      "2026-10-02": {
+        "status": "done"
+      },
+      "2026-10-01": {
+        "status": "done"
+      },
+      "2026-09-30": {
+        "status": "done"
+      }
+    },
+    "h_b": {
+      "2026-10-06": {
+        "status": "done"
+      },
+      "2026-10-04": {
+        "status": "miss",
+        "frozen": true
+      },
+      "2026-10-05": {
+        "status": "done"
+      }
+    }
+  },
+  "notes": [
+    {
+      "title": "Инсайт",
+      "body": "# Тест\n**важно**",
+      "tags": [
+        "тест"
+      ],
+      "pinned": true,
+      "habitId": "h_b"
+    }
+  ],
+  "challenges": [
+    {
+      "name": "30 дней без сахара",
+      "emoji": "🚫",
+      "color": "#ff5c8a",
+      "start": "2026-09-19",
+      "days": 30,
+      "habitId": "h_b"
+    }
+  ]
+}

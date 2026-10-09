@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="midnight" data-density="cozy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HabitVerse — трекер привычек</title>
+<meta name="description" content="Социальный трекер привычек: челленджи, streaks, отчёты, 3D-визуализация прогресса.">
+<meta name="theme-color" content="#07080f">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%A8%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="bg">
+  <div class="bg-orb bg-orb--1"></div>
+  <div class="bg-orb bg-orb--2"></div>
+  <div class="bg-orb bg-orb--3"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-noise"></div>
+</div>
+
+<!-- ===== ONBOARDING ===== -->
+<div id="onboarding" class="onboarding" hidden>
+  <div class="onb-stage" id="onbStage"></div>
+</div>
+
+<!-- ===== APP ===== -->
+<div id="app" class="app" hidden>
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-mark"><span>◈</span></div>
+      <div class="brand-text">
+        <b>HabitVerse</b>
+        <small id="brandLevel">уровень 1</small>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav">
+      <button class="nav-item" data-page="today"><i class="ic">📅</i><span>Сегодня</span><em class="nav-badge" id="navBadgeToday">0</em></button>
+      <button class="nav-item" data-page="calendar"><i class="ic">🗓️</i><span>Календарь</span></button>
+      <button class="nav-item" data-page="stats"><i class="ic">📊</i><span>Отчёты</span></button>
+      <button class="nav-item" data-page="notes"><i class="ic">📓</i><span>Заметки</span><em class="nav-badge" id="navBadgeNotes">0</em></button>
+      <button class="nav-item" data-page="social"><i class="ic">🔥</i><span>Челленджи</span></button>
+      <button class="nav-item" data-page="feed"><i class="ic">🌊</i><span>Лента</span></button>
+      <button class="nav-item" data-page="profile"><i class="ic">👤</i><span>Кабинет</span></button>
+    </nav>
+
+    <div class="side-xp">
+      <div class="side-xp-top"><span>XP</span><b id="sideXp">0</b></div>
+      <div class="xp-track"><div class="xp-fill" id="sideXpFill"></div></div>
+      <small id="sideXpNext">до уровня 2: 100 XP</small>
+    </div>
+
+    <div class="side-foot">
+      <button class="btn btn-ghost btn-sm" id="btnQuickAdd">＋ Привычка</button>
+      <button class="btn btn-ghost btn-icon" id="btnTheme" title="Сменить тему">🎨</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="btn btn-icon btn-ghost only-mobile" id="btnMenu">☰</button>
+      <div class="topbar-title">
+        <h1 id="pageTitle">Сегодня</h1>
+        <p id="pageSub">—</p>
+      </div>
+      <div class="topbar-actions">
+        <div class="search-wrap">
+          <input id="globalSearch" class="input input-sm" type="search" placeholder="Поиск… ( / )">
+        </div>
+        <button class="btn btn-icon btn-ghost" id="btnBell" title="Напоминания">🔔<span class="dot" id="bellDot" hidden></span></button>
+        <button class="btn btn-icon btn-ghost" id="btnQuote" title="Мотивация">✨</button>
+        <button class="avatar-btn" id="btnAvatar" title="Профиль"><span id="topAvatar">🙂</span></button>
+      </div>
+    </header>
+
+    <div class="pages" id="pages">
+      <section class="page" data-page="today"></section>
+      <section class="page" data-page="calendar"></section>
+      <section class="page" data-page="stats"></section>
+      <section class="page" data-page="notes"></section>
+      <section class="page" data-page="social"></section>
+      <section class="page" data-page="feed"></section>
+      <section class="page" data-page="profile"></section>
+    </div>
+  </main>
+</div>
+
+<!-- ===== OVERLAYS ===== -->
+<div class="modal-root" id="modalRoot" hidden><div class="modal-backdrop" data-close></div><div class="modal" id="modalBox" role="dialog" aria-modal="true"></div></div>
+<div class="sheet-root" id="sheetRoot" hidden><div class="modal-backdrop" data-close></div><div class="sheet" id="sheetBox"></div></div>
+<div id="toasts" class="toasts"></div>
+<div id="confetti" class="confetti"></div>
+<div id="quotePop" class="quote-pop" hidden></div>
+<canvas id="fx" class="fx"></canvas>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "name": "HabitVerse — трекер привычек",
+  "short_name": "HabitVerse",
+  "description": "Социальный трекер привычек: стрики, челленджи, календарь, отчёты и напоминания.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#07080f",
+  "theme_color": "#07080f",
+  "lang": "ru",
+  "categories": ["productivity", "lifestyle", "health"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237c5cff'/%3E%3Cstop offset='1' stop-color='%23ff5c8a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='512' height='512' rx='112' fill='%2307080f'/%3E%3Ccircle cx='256' cy='256' r='126' fill='none' stroke='url(%23g)' stroke-width='26'/%3E%3Cpath d='M196 258l42 42 84-96' fill='none' stroke='url(%23g)' stroke-width='30' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='42' fill='%2307080f'/%3E%3Ccircle cx='96' cy='96' r='48' fill='none' stroke='%237c5cff' stroke-width='10'/%3E%3Cpath d='M74 97l16 16 32-36' fill='none' stroke='%2300e5c3' stroke-width='11' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    { "name": "Сегодня", "url": "./index.html#today", "description": "Отметить привычки на сегодня" },
+    { "name": "Календарь", "url": "./index.html#calendar", "description": "История и heatmap" },
+    { "name": "Отчёты", "url": "./index.html#stats", "description": "Графики и достижения" }
+  ]
+}

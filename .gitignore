@@ -1,0 +1,36 @@
+# ===== HabitVerse — корневой .gitignore =====
+
+# Зависимости (ставятся через npm run install:all)
+node_modules/
+
+# Артефакты сборки — воспроизводимы командами build/export
+.next/
+out/
+build/
+*.tsbuildinfo
+next-env.d.ts
+
+# Кэш компиляции тестов (пересобирается лениво из web/src/lib/*.ts)
+tests/webbuild/
+
+# Окружение — реальные значения только в .env.local (в репозиторий не попадают)
+.env
+.env.local
+.env*.local
+!.env.example
+
+# Vercel
+.vercel
+
+# Логи
+*.log
+npm-debug.log*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# ОС
+.DS_Store
+Thumbs.db
