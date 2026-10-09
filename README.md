@@ -9,6 +9,7 @@
 > Данные живут в браузере (localStorage), экспорт/импорт JSON-бэкапа — в Настройках.
 > Запуск: `cd web && npm install && npm run dev` → http://localhost:3000.
 > Продакшен-сборка, статический экспорт и деплой на Vercel — **[`ИНСТРУКЦИЯ.md`](ИНСТРУКЦИЯ.md)**.
+> 🌐 Репозиторий: **[github.com/oskenhood/habitverse](https://github.com/oskenhood/habitverse)** (публичный, ветка `main`).
 
 ## Структура репозитория
 
